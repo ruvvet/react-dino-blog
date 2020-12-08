@@ -4,9 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// create an object
+const post={title: 'the land before time',
+author:'Some Dino',
+body: 'once upon a time...',
+comments: ["First!", "TIHI", "<3!"]
+}
+
+
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* pass the object into the app */}
+    <App post={post}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
