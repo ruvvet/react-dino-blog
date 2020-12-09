@@ -26,38 +26,16 @@ class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      title: props.post.title,
-      author: props.post.author,
-      body: props.post.body,
-      comments: props.post.comments,
-      // we created new inputtext key here
+      props,
     };
   }
 
-  newComment = () => {
-    let newArr = [...this.state.comments, this.state.inputText]; // [ [comments], newcomment]
-
-    this.setState({ comments: newArr });
-  };
-
-  changeInput = (evt) => {
-    this.setState({ inputText: evt.target.value });
-  };
-
   render() {
+    console.log('hello', this.state.props.post);
+
     return (
       <div>
-        <p>Title: {this.state.title}</p>
-        <p>Author: {this.state.author}</p>
-        <p>Body: {this.state.body}</p>
-        <p>Comments: {this.state.comments.join(',')}</p>
-
-        <input
-          type="text"
-          value={this.state.inputText}
-          onChange={this.changeInput}
-        ></input>
-        <button onClick={this.newComment}>Add Comment</button>
+        <Dino dinopost={this.state.props.post} />
       </div>
     );
   }
